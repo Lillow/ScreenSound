@@ -16,6 +16,7 @@ O Screen Sound é um aplicativo simples de linha de comando desenvolvido em C# e
 - `avaliar`: Atribui uma nota a uma banda registrada.
 - `mostrar`: Lista todas as bandas registradas.
 - `media`: Calcula a média das notas atribuídas às bandas.
+- `sair`: Encerra a aplicação.
 
 ## Tecnologias Utilizadas
 - C#

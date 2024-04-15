@@ -1,2 +1,8 @@
-# Ignore arquivo .vs
+# Ignore pasta .vs
 .vs
+
+# Ignore pasta bin
+csharp_lembretes/bin/
+
+# Ignore pasta obj
+csharp_lembretes/obj/

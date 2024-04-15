@@ -1,7 +1,6 @@
 ﻿// Screen Sound
 
 
-
 //List<string> listaBandas = new List<string> { "Metallica", "AC/DC", "Iron Maiden", "Guns N' Roses", "Led Zeppelin" };
 using System.ComponentModel.Design;
 using System.Diagnostics;

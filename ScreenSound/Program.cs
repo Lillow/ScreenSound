@@ -55,7 +55,7 @@ void ExibirOpcoesMenu()
                 MenuRegistrarBanda _1 = new(bandasRegistradas);
                 break;
             case 2:
-                RegistrarAlbum();
+                MenuRegistrarAlbum _2 = new(bandasRegistradas);
                 break;
             case 3:
                 ExibirBandas();
@@ -80,26 +80,6 @@ void ExibirOpcoesMenu()
     }
     
 
-}
-
-
-
-void RegistrarAlbum()
-{
-    Console.Clear();
-    ExibirTitulo("Registro de álbuns");
-    Console.Write("Digite a banda cujo álbum deseja registrar: ");
-    string nomeDaBanda = Console.ReadLine()!;
-
-    //if (bandasRegistradas[nomeDaBanda].)
-
-    Console.Write("Agora digite o título do álbum: ");
-    string tituloAlbum = Console.ReadLine()!;
-    /**
-     * ESPAÇO RESERVADO PARA COMPLETAR A FUNÇÃO
-     */
-    Console.WriteLine($"O álbum {tituloAlbum} de {nomeDaBanda} foi registrado com sucesso!");
-    VoltarMenu();
 }
 
 void ExibirBandas()

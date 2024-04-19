@@ -113,7 +113,6 @@ void RegistrarAlbum()
 
 void ExibirBandas()
 {
-
     Console.Clear() ;
 
     ExibirTitulo("Exibindo bandas registradas");
@@ -122,8 +121,8 @@ void ExibirBandas()
     {
         Console.WriteLine($"Banda: {banda}");
     }
-    Console.WriteLine();
-    ExibirOpcoesMenu();
+
+    VoltarMenu();
 }
 
 void ExibirTitulo(string titulo)
@@ -207,7 +206,7 @@ void ExibirDetalhes()
 
 void VoltarMenu()
 {
-    Console.WriteLine("Digite qualquer tecla para voltar ao menu");
+    Console.WriteLine("\nDigite qualquer tecla para voltar ao menu");
     Console.ReadKey();
     ExibirOpcoesMenu();
 }

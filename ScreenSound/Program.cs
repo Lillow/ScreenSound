@@ -1,25 +1,25 @@
 ﻿// Screen Sound
 
 
+using ScreenSound.Menu;
 using ScreenSound.Modelos;
 
 
-Dictionary <string, Banda> listaBandas = [];
-listaBandas.Add("Linkin Park", new Banda("Linkin Park"));
-listaBandas["Linkin Park"].AdicionarNota(new Avaliacao(10));
-listaBandas["Linkin Park"].AdicionarNota(new Avaliacao(9));
-listaBandas["Linkin Park"].AdicionarNota(new Avaliacao(9.5f));
+Dictionary <string, Banda> bandasRegistradas = [];
+bandasRegistradas.Add("Linkin Park", new Banda("Linkin Park"));
+bandasRegistradas["Linkin Park"].AdicionarNota(new Avaliacao(10));
+bandasRegistradas["Linkin Park"].AdicionarNota(new Avaliacao(9));
+bandasRegistradas["Linkin Park"].AdicionarNota(new Avaliacao(9.5f));
 
-listaBandas.Add("Slipknot", new("Slipknot"));
-listaBandas.Add("System of a Down", new("System of a Down"));
-listaBandas.Add("Coldplay", new("Coldplay"));
+bandasRegistradas.Add("Slipknot", new("Slipknot"));
+bandasRegistradas.Add("System of a Down", new("System of a Down"));
+bandasRegistradas.Add("Coldplay", new("Coldplay"));
 
 
 
 
 void ExibirLogo()
 {
-    Console.Clear();
     const string mensaemDeBoasVindas = @"
 
 ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
@@ -52,7 +52,7 @@ void ExibirOpcoesMenu()
         switch (opcaoEscolhida)
         {
             case 1:
-                RegistrarBanda();
+                MenuRegistrarBanda _1 = new(bandasRegistradas);
                 break;
             case 2:
                 RegistrarAlbum();
@@ -77,21 +77,12 @@ void ExibirOpcoesMenu()
     else
     {
         ExibirOpcoesMenu();
-    } 
+    }
+    
 
 }
 
-void RegistrarBanda()
-{
-    Console.Clear();
-    ExibirTitulo("Registro de bandas");
-    Console.Write("Digite o nome da banda que deseja registrar: ");
-    Banda banda = new(Console.ReadLine()!);
-    listaBandas.Add(banda.Nome, banda);
 
-    Console.WriteLine($"\nA banda {banda.Nome} foi registrada com sucesso!\n");
-    VoltarMenu();
-}
 
 void RegistrarAlbum()
 {
@@ -100,7 +91,7 @@ void RegistrarAlbum()
     Console.Write("Digite a banda cujo álbum deseja registrar: ");
     string nomeDaBanda = Console.ReadLine()!;
 
-    //if (listaBandas[nomeDaBanda].)
+    //if (bandasRegistradas[nomeDaBanda].)
 
     Console.Write("Agora digite o título do álbum: ");
     string tituloAlbum = Console.ReadLine()!;
@@ -117,7 +108,7 @@ void ExibirBandas()
 
     ExibirTitulo("Exibindo bandas registradas");
 
-    foreach (var banda in listaBandas.Keys)
+    foreach (var banda in bandasRegistradas.Keys)
     {
         Console.WriteLine($"Banda: {banda}");
     }
@@ -125,11 +116,6 @@ void ExibirBandas()
     VoltarMenu();
 }
 
-void ExibirTitulo(string titulo)
-{
-    string enfeiteTitulo = string.Empty.PadRight(titulo.Length + 2, '*');
-    Console.WriteLine($"{enfeiteTitulo}\n {titulo}\n{enfeiteTitulo}\n");
-}
 
 void AvaliarBanda()
 {
@@ -140,7 +126,7 @@ void AvaliarBanda()
 
     var nomeBanda = Console.ReadLine()!;
 
-    if (listaBandas.TryGetValue(nomeBanda, out Banda? value))
+    if (bandasRegistradas.TryGetValue(nomeBanda, out Banda? value))
     {
         Console.Write($"Digite a nota da banda {nomeBanda}: "); 
         Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!);
@@ -163,7 +149,7 @@ void ExibirDetalhes()
     var nomeBanda = Console.ReadLine()!;
  
 
-    if (listaBandas.TryGetValue(nomeBanda, out Banda? value))
+    if (bandasRegistradas.TryGetValue(nomeBanda, out Banda? value))
     {
 
        // EsperarLimpar(2000);
@@ -177,7 +163,7 @@ void ExibirDetalhes()
         Console.WriteLine($"A banda {nomeBanda} não está registrada\n");
     }
 
-    /***foreach (var valor in listaBandas[nomeBanda])
+    /***foreach (var valor in bandasRegistradas[nomeBanda])
     {
         count ++;
         total += valor;
@@ -187,6 +173,7 @@ void ExibirDetalhes()
 
     ExibirOpcoesMenu();
 }
+
 
 //string PegarNomeBanda(string msg)
 //{
@@ -203,6 +190,11 @@ void ExibirDetalhes()
 //    Console.Clear();
 //}
 
+void ExibirTitulo(string titulo)
+{
+    string enfeiteTitulo = string.Empty.PadRight(titulo.Length + 2, '*');
+    Console.WriteLine($"{enfeiteTitulo}\n {titulo}\n{enfeiteTitulo}\n");
+}
 
 void VoltarMenu()
 {

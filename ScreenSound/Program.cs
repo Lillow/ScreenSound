@@ -58,10 +58,10 @@ void ExibirOpcoesMenu()
                 MenuRegistrarAlbum _2 = new(bandasRegistradas);
                 break;
             case 3:
-                ExibirBandas();
+                MenuExibirBandas _3 = new(bandasRegistradas);
                 break;
             case 4:
-                AvaliarBanda();
+                MenuAvaliarBanda _4 = new(bandasRegistradas);
                 break;
             case 5:
                 ExibirDetalhes();
@@ -82,46 +82,8 @@ void ExibirOpcoesMenu()
 
 }
 
-void ExibirBandas()
-{
-    Console.Clear() ;
-
-    ExibirTitulo("Exibindo bandas registradas");
-
-    foreach (var banda in bandasRegistradas.Keys)
-    {
-        Console.WriteLine($"Banda: {banda}");
-    }
-
-    VoltarMenu();
-}
 
 
-void AvaliarBanda()
-{
-
-    ExibirTitulo("Avaliar Banda");
-
-    Console.WriteLine("Digite o nome da banda que deseja dar uma nota: ") ;
-
-    var nomeBanda = Console.ReadLine()!;
-
-    if (bandasRegistradas.TryGetValue(nomeBanda, out Banda? value))
-    {
-        Console.Write($"Digite a nota da banda {nomeBanda}: "); 
-        Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!);
-        value.AdicionarNota(nota);
-
-        //EsperarLimpar(1500);
-
-        Console.WriteLine($"A nota foi adicionada para a banda {nomeBanda}\n");
-    }
-    else
-    {
-        Console.WriteLine($"Banda {nomeBanda} não encontrada\n");
-    }
-    ExibirOpcoesMenu();
-}
 
 void ExibirDetalhes()
 {

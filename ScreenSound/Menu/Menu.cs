@@ -2,9 +2,8 @@
 
 namespace ScreenSound.Menu;
 
-internal class Menu(Dictionary<string, Banda> listaBandas)
+internal class Menu(Dictionary<string, Banda> bandasRegistradas)
 {
-    public Dictionary<string, Banda> ListaBandas { get; set; } = listaBandas;
     public static void ExibirTitulo(string titulo)
     {
         string enfeiteTitulo = string.Empty.PadRight(titulo.Length + 2, '*');
@@ -19,8 +18,19 @@ internal class Menu(Dictionary<string, Banda> listaBandas)
         //ExibirOpcoesMenu();
     }
 
-    public static bool ExisteBanda(Dictionary<string, Banda> bandasRegistradas, string nome)
+    public bool ExisteBanda(Dictionary<string, Banda> bandasRegistradas, string nome)
     {
-        return bandasRegistradas.ContainsKey(nome);
+        if (bandasRegistradas.TryGetValue(nome, out Banda ? banda))
+        {
+            Banda = banda;
+            return bandasRegistradas.ContainsKey(nome);
+        }
+        else
+        {
+            return false;
+        }
     }
+
+    public Dictionary<string, Banda> BandasRegistradas { get; set; } = bandasRegistradas;
+    public Banda Banda { get; set; }
 }

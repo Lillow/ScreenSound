@@ -7,7 +7,7 @@ internal class MenuRegistrarAlbum : Menu
 
 
 
-    public MenuRegistrarAlbum(Dictionary<string, Banda> listaBandas) : base(listaBandas)
+    public MenuRegistrarAlbum(Dictionary<string, Banda> bandasRegistradas) : base(bandasRegistradas)
     {
 
         Console.Clear();
@@ -15,11 +15,11 @@ internal class MenuRegistrarAlbum : Menu
         Console.Write("\nDigite a banda cujo álbum deseja registrar: ");
         string nomeDaBanda = Console.ReadLine()!;
 
-        if (ExisteBanda(ListaBandas, nomeDaBanda))
+        if (ExisteBanda(BandasRegistradas, nomeDaBanda))
         {
             Console.Write("\nAgora digite o título do álbum: ");
             string tituloAlbum = Console.ReadLine()!;
-            ListaBandas[nomeDaBanda].AdicionarAlbum(new(tituloAlbum));
+            BandasRegistradas[nomeDaBanda].AdicionarAlbum(new(tituloAlbum));
             Console.WriteLine($"\nO álbum {tituloAlbum} de {nomeDaBanda} foi registrado com sucesso!");
             //VoltarMenu();
 

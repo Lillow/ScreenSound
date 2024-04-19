@@ -33,4 +33,11 @@ internal class Menu(Dictionary<string, Banda> bandasRegistradas)
 
     public Dictionary<string, Banda> BandasRegistradas { get; set; } = bandasRegistradas;
     public Banda Banda { get; set; }
+
+    public void MsgBandaInexistente(string nomeBanda)
+    {
+        Console.WriteLine($"A banda {nomeBanda} não está registrada\n");
+    }
 }
+
+

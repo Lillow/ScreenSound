@@ -82,41 +82,5 @@ void ExibirOpcoesMenu()
 
 }
 
-
-
-
-
-
-
-//string PegarNomeBanda(string msg)
-//{
-//    EsperarLimpar(500);
-//    Console.WriteLine($"Digite o nome da banda {msg}: ");
-//    var nomeBanda = Console.ReadLine();
-//    return nomeBanda;
-
-//}
-
-//void EsperarLimpar(int ms)
-//{
-//    Thread.Sleep(ms);
-//    Console.Clear();
-//}
-
-void ExibirTitulo(string titulo)
-{
-    string enfeiteTitulo = string.Empty.PadRight(titulo.Length + 2, '*');
-    Console.WriteLine($"{enfeiteTitulo}\n {titulo}\n{enfeiteTitulo}\n");
-}
-
-void VoltarMenu()
-{
-    Console.WriteLine("\nDigite qualquer tecla para voltar ao menu");
-    Console.ReadKey();
-    ExibirOpcoesMenu();
-}
-
-
-
 ExibirOpcoesMenu();
 

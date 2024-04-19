@@ -64,7 +64,7 @@ void ExibirOpcoesMenu()
                 MenuAvaliarBanda _4 = new(bandasRegistradas);
                 break;
             case 5:
-                ExibirDetalhes();
+                MenuExibirDetalhes _5 = new(bandasRegistradas);
                 break;
             case -1:
                 Console.WriteLine("Tchau tchau :)");
@@ -85,36 +85,7 @@ void ExibirOpcoesMenu()
 
 
 
-void ExibirDetalhes()
-{
-    Console.WriteLine($"Digite o nome da banda que quer ver a média: ");
-    var nomeBanda = Console.ReadLine()!;
- 
 
-    if (bandasRegistradas.TryGetValue(nomeBanda, out Banda? value))
-    {
-
-       // EsperarLimpar(2000);
-
-        var total = value.Media;
-
-        Console.WriteLine($"A média da banda {nomeBanda} é {Math.Round(total, 2)}\n");
-    }
-    else
-    {
-        Console.WriteLine($"A banda {nomeBanda} não está registrada\n");
-    }
-
-    /***foreach (var valor in bandasRegistradas[nomeBanda])
-    {
-        count ++;
-        total += valor;
-    }***/
-
-
-
-    ExibirOpcoesMenu();
-}
 
 
 //string PegarNomeBanda(string msg)

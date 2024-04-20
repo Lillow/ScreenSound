@@ -52,7 +52,10 @@ internal class MenuExibirOpcoes : Menu
             {
                 Menu menu = opcoes[opcaoEscolhida];
                 menu.Executar(bandasRegistradas);
-                VoltarMenu(bandasRegistradas);
+                if (opcaoEscolhida != -1)
+                {
+                    VoltarMenu(bandasRegistradas);
+                }
             }
         }
         else

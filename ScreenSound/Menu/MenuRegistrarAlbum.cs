@@ -7,7 +7,7 @@ internal class MenuRegistrarAlbum : Menu
     public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
 
-        Console.Clear();
+        base.Executar(bandasRegistradas);
         ExibirTitulo("Registro de álbuns");
         Console.Write("\nDigite a banda cujo álbum deseja registrar: ");
         string nomeDaBanda = Console.ReadLine()!;

@@ -5,7 +5,10 @@ namespace ScreenSound.Menu;
 internal abstract class Menu
 {
 
-    public abstract void Executar(Dictionary<string, Banda> bandasRegistradas);
+    public virtual void Executar(Dictionary<string, Banda> bandasRegistradas)
+    {
+        Console.Clear();
+    }
     public static void ExibirTitulo(string titulo)
     {
         string enfeiteTitulo = string.Empty.PadRight(titulo.Length + 2, '*');

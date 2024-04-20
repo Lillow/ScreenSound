@@ -8,7 +8,7 @@ internal class MenuExibirOpcoes : Menu
     public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
 
-        Console.Clear();
+        base.Executar(bandasRegistradas);
         Logo logo = new(@"
 
 ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░

@@ -6,7 +6,7 @@ internal class MenuAvaliarBanda : Menu
 {
     public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
-        Console.Clear();
+        base.Executar(bandasRegistradas);
         ExibirTitulo("Avaliar Banda");
         Console.WriteLine("\nDigite o nome da banda que deseja dar uma nota: ");
         var nomeBanda = Console.ReadLine()!;

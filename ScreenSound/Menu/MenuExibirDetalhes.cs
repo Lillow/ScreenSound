@@ -6,7 +6,7 @@ internal class MenuExibirDetalhes : Menu
 {
     public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
-        Console.Clear();
+        base.Executar(bandasRegistradas);
         Console.WriteLine($"Digite o nome da banda que quer ver a média: ");
         var nomeBanda = Console.ReadLine()!;
 

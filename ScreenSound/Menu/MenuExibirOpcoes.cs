@@ -46,54 +46,19 @@ internal class MenuExibirOpcoes : Menu
             if (opcaoEscolhida != 1 && opcaoEscolhida != 2 && opcaoEscolhida != 3 && opcaoEscolhida != 4 && opcaoEscolhida != 5 && opcaoEscolhida != -1)
             {
                 Executar(bandasRegistradas);
+                VoltarMenu(bandasRegistradas);
             }
             else
             {
                 Menu menu = opcoes[opcaoEscolhida];
                 menu.Executar(bandasRegistradas);
+                VoltarMenu(bandasRegistradas);
             }
         }
         else
         {
             Executar(bandasRegistradas);
+            VoltarMenu(bandasRegistradas);
         }
-
-            //if (int.TryParse(Console.ReadLine()!, out int opcaoEscolhida))
-            //{
-            //    switch (opcaoEscolhida)
-            //    {
-            //        case 1:
-            //            MenuRegistrarBanda _1 = new(bandasRegistradas);
-            //            VoltarMenu(bandasRegistradas);
-            //            break;
-            //        case 2:
-            //            MenuRegistrarAlbum _2 = new(bandasRegistradas);
-            //            VoltarMenu(bandasRegistradas);
-            //            break;
-            //        case 3:
-            //            MenuExibirBandas _3 = new(bandasRegistradas);
-            //            VoltarMenu(bandasRegistradas);
-            //            break;
-            //        case 4:
-            //            MenuAvaliarBanda _4 = new(bandasRegistradas);
-            //            VoltarMenu(bandasRegistradas);
-            //            break;
-            //        case 5:
-            //            MenuExibirDetalhes _5 = new(bandasRegistradas);
-            //            VoltarMenu(bandasRegistradas);
-            //            break;
-            //        case -1:
-            //            Console.WriteLine("Tchau tchau :)");
-            //            break;
-            //        default:
-            //            Console.WriteLine("Opção inválida");
-            //            break;
-            //    }
-            //}
-            //else
-            //{
-            //    ExibirOpcoesMenu();
-            //}
-
     }
 }

@@ -12,7 +12,7 @@ internal class Avaliacao
 
     public static Avaliacao Parse(string s)
     {
-        _ = float.TryParse(s, out float nota);
+        float.TryParse(s, out float nota);
 
         return new Avaliacao(nota);
     }

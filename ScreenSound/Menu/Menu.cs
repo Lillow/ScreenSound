@@ -2,8 +2,10 @@
 
 namespace ScreenSound.Menu;
 
-internal class Menu
+internal abstract class Menu
 {
+
+    public abstract void Executar(Dictionary<string, Banda> bandasRegistradas);
     public static void ExibirTitulo(string titulo)
     {
         string enfeiteTitulo = string.Empty.PadRight(titulo.Length + 2, '*');
@@ -16,8 +18,8 @@ internal class Menu
     {
         Console.WriteLine("\nDigite qualquer tecla para voltar ao menu");
         Console.ReadKey();
-        MenuExibirOpcoes menuExibirOpcoes = new(bandasRegistradas);
-        menuExibirOpcoes.ExibirOpcoesMenu();
+        MenuExibirOpcoes menuExibirOpcoes = new();
+        menuExibirOpcoes.Executar(bandasRegistradas);
     }
 
     public static bool ExisteAlbum(Banda banda, string nome)

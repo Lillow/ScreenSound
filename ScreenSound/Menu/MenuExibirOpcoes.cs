@@ -3,10 +3,11 @@ using ScreenSound.Outros;
 
 namespace ScreenSound.Menu;
 
-internal class MenuExibirOpcoes(Dictionary<string, Banda> bandasRegistradas) : Menu
+internal class MenuExibirOpcoes : Menu
 {
-    public void ExibirOpcoesMenu()
+    public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
+
         Console.Clear();
         Logo logo = new(@"
 
@@ -29,43 +30,63 @@ internal class MenuExibirOpcoes(Dictionary<string, Banda> bandasRegistradas) : M
         Console.WriteLine("Digite -1 para sair");
 
         Console.Write("\nDigite a sua opção: ");
+       
+
+
+        Dictionary<int, Menu> opcoes = [];
+        opcoes.Add(1, new MenuRegistrarBanda());
+        opcoes.Add(2, new MenuRegistrarAlbum());
+        opcoes.Add(4, new MenuExibirBandas());
+        opcoes.Add(3, new MenuAvaliarBanda());
+        opcoes.Add(5, new MenuExibirDetalhes());
+        opcoes.Add(-1, new MenuSair());
 
         if (int.TryParse(Console.ReadLine()!, out int opcaoEscolhida))
         {
-            switch (opcaoEscolhida)
-            {
-                case 1:
-                    MenuRegistrarBanda _1 = new(bandasRegistradas);
-                    VoltarMenu(bandasRegistradas);
-                    break;
-                case 2:
-                    MenuRegistrarAlbum _2 = new(bandasRegistradas);
-                    VoltarMenu(bandasRegistradas);
-                    break;
-                case 3:
-                    MenuExibirBandas _3 = new(bandasRegistradas);
-                    VoltarMenu(bandasRegistradas);
-                    break;
-                case 4:
-                    MenuAvaliarBanda _4 = new(bandasRegistradas);
-                    VoltarMenu(bandasRegistradas);
-                    break;
-                case 5:
-                    MenuExibirDetalhes _5 = new(bandasRegistradas);
-                    VoltarMenu(bandasRegistradas);
-                    break;
-                case -1:
-                    Console.WriteLine("Tchau tchau :)");
-                    break;
-                default:
-                    Console.WriteLine("Opção inválida");
-                    break;
-            }
+            Menu menu = opcoes[opcaoEscolhida];
+            menu.Executar(bandasRegistradas);
         }
         else
         {
-            ExibirOpcoesMenu();
+            Executar(bandasRegistradas);
         }
+
+            //if (int.TryParse(Console.ReadLine()!, out int opcaoEscolhida))
+            //{
+            //    switch (opcaoEscolhida)
+            //    {
+            //        case 1:
+            //            MenuRegistrarBanda _1 = new(bandasRegistradas);
+            //            VoltarMenu(bandasRegistradas);
+            //            break;
+            //        case 2:
+            //            MenuRegistrarAlbum _2 = new(bandasRegistradas);
+            //            VoltarMenu(bandasRegistradas);
+            //            break;
+            //        case 3:
+            //            MenuExibirBandas _3 = new(bandasRegistradas);
+            //            VoltarMenu(bandasRegistradas);
+            //            break;
+            //        case 4:
+            //            MenuAvaliarBanda _4 = new(bandasRegistradas);
+            //            VoltarMenu(bandasRegistradas);
+            //            break;
+            //        case 5:
+            //            MenuExibirDetalhes _5 = new(bandasRegistradas);
+            //            VoltarMenu(bandasRegistradas);
+            //            break;
+            //        case -1:
+            //            Console.WriteLine("Tchau tchau :)");
+            //            break;
+            //        default:
+            //            Console.WriteLine("Opção inválida");
+            //            break;
+            //    }
+            //}
+            //else
+            //{
+            //    ExibirOpcoesMenu();
+            //}
 
     }
 }

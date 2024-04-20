@@ -4,7 +4,8 @@ namespace ScreenSound.Menu;
 
 internal class MenuRegistrarBanda : Menu
 {
-    public MenuRegistrarBanda(Dictionary<string, Banda> bandasRegistradas) 
+
+    public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
         Console.Clear();
         ExibirTitulo("Registro de bandas");
@@ -16,11 +17,10 @@ internal class MenuRegistrarBanda : Menu
             bandasRegistradas.Add(banda.Nome, banda);
             RegistroSucessoEsperar();
             Console.WriteLine($"\nA banda {banda.Nome} foi registrada com sucesso!\n");
-            }
+        }
         else
         {
             MsgBandaExistente(banda.Nome);
         }
-
     }
 }

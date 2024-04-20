@@ -20,8 +20,8 @@ internal class Start
         bandasRegistradas.Add("Coldplay", new("Coldplay"));
 
 
-        MenuExibirOpcoes menuExibirOpcoes = new(bandasRegistradas);
-        menuExibirOpcoes.ExibirOpcoesMenu();
+        MenuExibirOpcoes menuExibirOpcoes = new();
+        menuExibirOpcoes.Executar(bandasRegistradas);
     }
 
 

@@ -41,10 +41,17 @@ internal class MenuExibirOpcoes : Menu
         opcoes.Add(5, new MenuExibirDetalhes());
         opcoes.Add(-1, new MenuSair());
 
-        if (int.TryParse(Console.ReadLine()!, out int opcaoEscolhida))
+        if (int.TryParse(Console.ReadLine()!, out int opcaoEscolhida) )
         {
-            Menu menu = opcoes[opcaoEscolhida];
-            menu.Executar(bandasRegistradas);
+            if (opcaoEscolhida != 1 && opcaoEscolhida != 2 && opcaoEscolhida != 3 && opcaoEscolhida != 4 && opcaoEscolhida != 5 && opcaoEscolhida != -1)
+            {
+                Executar(bandasRegistradas);
+            }
+            else
+            {
+                Menu menu = opcoes[opcaoEscolhida];
+                menu.Executar(bandasRegistradas);
+            }
         }
         else
         {

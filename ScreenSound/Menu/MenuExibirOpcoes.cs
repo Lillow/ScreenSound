@@ -1,4 +1,5 @@
 ﻿using ScreenSound.Modelos;
+using ScreenSound.Outros;
 
 namespace ScreenSound.Menu;
 
@@ -6,7 +7,19 @@ internal class MenuExibirOpcoes(Dictionary<string, Banda> bandasRegistradas) : M
 {
     public void ExibirOpcoesMenu()
     {
-        //ExibirLogo();
+        Logo logo = new(@"
+
+░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
+██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗░██║  ██╔════╝██╔══██╗██║░░░██║████╗░██║██╔══██╗
+╚█████╗░██║░░╚═╝██████╔╝█████╗░░█████╗░░██╔██╗██║  ╚█████╗░██║░░██║██║░░░██║██╔██╗██║██║░░██║
+░╚═══██╗██║░░██╗██╔══██╗██╔══╝░░██╔══╝░░██║╚████║  ░╚═══██╗██║░░██║██║░░░██║██║╚████║██║░░██║
+██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
+╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░
+
+");
+        logo.ExibirLogo();
+        Console.WriteLine("Boas vindas ao Screen Sound\n");
+
         Console.WriteLine("\nDigite 1 para registrar uma banda");
         Console.WriteLine("Digite 2 para registrar o álbum de uma banda");
         Console.WriteLine("Digite 3 para mostrar todas as bandas");

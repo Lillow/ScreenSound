@@ -12,7 +12,5 @@ internal class MenuExibirBandas : Menu
         {
             Console.WriteLine($"Banda: {nomeBanda}");
         }
-
-        VoltarMenu(bandasRegistradas);
     }
 }

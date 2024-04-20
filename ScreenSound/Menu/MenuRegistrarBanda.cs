@@ -13,15 +13,13 @@ internal class MenuRegistrarBanda : Menu
 
         if (!ExisteBanda(bandasRegistradas, banda.Nome))
         {
-        bandasRegistradas.Add(banda.Nome, banda);
-        RegistroSucessoEsperar();
-        Console.WriteLine($"\nA banda {banda.Nome} foi registrada com sucesso!\n");
-        VoltarMenu(bandasRegistradas);
-        }
+            bandasRegistradas.Add(banda.Nome, banda);
+            RegistroSucessoEsperar();
+            Console.WriteLine($"\nA banda {banda.Nome} foi registrada com sucesso!\n");
+            }
         else
         {
             MsgBandaExistente(banda.Nome);
-            VoltarMenu(bandasRegistradas);
         }
 
     }

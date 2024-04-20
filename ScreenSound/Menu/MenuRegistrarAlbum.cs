@@ -26,25 +26,25 @@ internal class MenuRegistrarAlbum : Menu
                 bandasRegistradas[nomeDaBanda].AdicionarAlbum(new(tituloAlbum));
                 RegistroSucessoEsperar();
                 Console.WriteLine($"\nO álbum {tituloAlbum} de {nomeDaBanda} foi registrado com sucesso!");
-                VoltarMenu(bandasRegistradas);
+                
             }
             else
             {
                MsgAlbumExistente(tituloAlbum);
-               VoltarMenu(bandasRegistradas);
+               
             }
 
         }
         else
         {
             Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada!");
-            VoltarMenu(bandasRegistradas);
+            
         }
         
         /**
          * ESPAÇO RESERVADO PARA COMPLETAR A FUNÇÃO
          */
-        VoltarMenu(bandasRegistradas);
+        
 
     }
 }

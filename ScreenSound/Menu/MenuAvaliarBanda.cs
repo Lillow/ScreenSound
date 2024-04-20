@@ -23,7 +23,5 @@ internal class MenuAvaliarBanda : Menu
         {
             Console.WriteLine($"\nBanda {nomeBanda} não encontrada\n");
         }
-
-        VoltarMenu(bandasRegistradas);
     }
 }

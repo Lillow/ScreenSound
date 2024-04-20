@@ -3,7 +3,7 @@ using ScreenSound.Outros;
 
 namespace ScreenSound.Menu;
 
-internal class MenuExibirOpcoes(Dictionary<string, Banda> bandasRegistradas)
+internal class MenuExibirOpcoes(Dictionary<string, Banda> bandasRegistradas) : Menu
 {
     public void ExibirOpcoesMenu()
     {
@@ -36,18 +36,23 @@ internal class MenuExibirOpcoes(Dictionary<string, Banda> bandasRegistradas)
             {
                 case 1:
                     MenuRegistrarBanda _1 = new(bandasRegistradas);
+                    VoltarMenu(bandasRegistradas);
                     break;
                 case 2:
                     MenuRegistrarAlbum _2 = new(bandasRegistradas);
+                    VoltarMenu(bandasRegistradas);
                     break;
                 case 3:
                     MenuExibirBandas _3 = new(bandasRegistradas);
+                    VoltarMenu(bandasRegistradas);
                     break;
                 case 4:
                     MenuAvaliarBanda _4 = new(bandasRegistradas);
+                    VoltarMenu(bandasRegistradas);
                     break;
                 case 5:
                     MenuExibirDetalhes _5 = new(bandasRegistradas);
+                    VoltarMenu(bandasRegistradas);
                     break;
                 case -1:
                     Console.WriteLine("Tchau tchau :)");

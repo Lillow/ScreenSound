@@ -31,8 +31,5 @@ internal class MenuExibirDetalhes : Menu
             total += valor;
         }***/
 
-
-
-        VoltarMenu(bandasRegistradas);
     }
 }

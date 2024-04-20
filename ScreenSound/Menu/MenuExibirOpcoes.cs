@@ -3,10 +3,11 @@ using ScreenSound.Outros;
 
 namespace ScreenSound.Menu;
 
-internal class MenuExibirOpcoes(Dictionary<string, Banda> bandasRegistradas) : Menu(bandasRegistradas)
+internal class MenuExibirOpcoes(Dictionary<string, Banda> bandasRegistradas) //: Menu(bandasRegistradas)
 {
     public void ExibirOpcoesMenu()
     {
+        Console.Clear();
         Logo logo = new(@"
 
 ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
@@ -34,19 +35,19 @@ internal class MenuExibirOpcoes(Dictionary<string, Banda> bandasRegistradas) : M
             switch (opcaoEscolhida)
             {
                 case 1:
-                    MenuRegistrarBanda _1 = new(BandasRegistradas);
+                    MenuRegistrarBanda _1 = new(bandasRegistradas);
                     break;
                 case 2:
-                    MenuRegistrarAlbum _2 = new(BandasRegistradas);
+                    MenuRegistrarAlbum _2 = new(bandasRegistradas);
                     break;
                 case 3:
-                    MenuExibirBandas _3 = new(BandasRegistradas);
+                    MenuExibirBandas _3 = new(bandasRegistradas);
                     break;
                 case 4:
-                    MenuAvaliarBanda _4 = new(BandasRegistradas);
+                    MenuAvaliarBanda _4 = new(bandasRegistradas);
                     break;
                 case 5:
-                    MenuExibirDetalhes _5 = new(BandasRegistradas);
+                    MenuExibirDetalhes _5 = new(bandasRegistradas);
                     break;
                 case -1:
                     Console.WriteLine("Tchau tchau :)");

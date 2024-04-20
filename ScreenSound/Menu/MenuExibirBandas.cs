@@ -4,15 +4,15 @@ namespace ScreenSound.Menu;
 
 internal class MenuExibirBandas : Menu
 {
-    public MenuExibirBandas(Dictionary<string, Banda> bandasRegistradas) : base(bandasRegistradas)
+    public MenuExibirBandas(Dictionary<string, Banda> bandasRegistradas) //: base(bandasRegistradas)
     {
         Console.Clear();
         ExibirTitulo("Exibindo bandas registradas");
-        foreach (var nomeBanda in BandasRegistradas.Keys)
+        foreach (var nomeBanda in bandasRegistradas.Keys)
         {
             Console.WriteLine($"Banda: {nomeBanda}");
         }
 
-        VoltarMenu();
+        VoltarMenu(bandasRegistradas);
     }
 }

@@ -16,25 +16,6 @@ bandasRegistradas.Add("System of a Down", new("System of a Down"));
 bandasRegistradas.Add("Coldplay", new("Coldplay"));
 
 
-
-
-void ExibirLogo()
-{
-    const string mensaemDeBoasVindas = @"
-
-░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
-██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗░██║  ██╔════╝██╔══██╗██║░░░██║████╗░██║██╔══██╗
-╚█████╗░██║░░╚═╝██████╔╝█████╗░░█████╗░░██╔██╗██║  ╚█████╗░██║░░██║██║░░░██║██╔██╗██║██║░░██║
-░╚═══██╗██║░░██╗██╔══██╗██╔══╝░░██╔══╝░░██║╚████║  ░╚═══██╗██║░░██║██║░░░██║██║╚████║██║░░██║
-██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
-╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░
-
-Boas vindas ao Screen Sound
-";
-    Console.WriteLine(mensaemDeBoasVindas);
-
-}
-
 MenuExibirOpcoes menuExibirOpcoes = new(bandasRegistradas);
 
 menuExibirOpcoes.ExibirOpcoesMenu();

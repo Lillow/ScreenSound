@@ -2,7 +2,7 @@
 
 namespace ScreenSound.Menu;
 
-internal class Menu(Dictionary<string, Banda> bandasRegistradas)
+internal class Menu//(Dictionary<string, Banda> bandasRegistradas)
 {
     public static void ExibirTitulo(string titulo)
     {
@@ -10,12 +10,14 @@ internal class Menu(Dictionary<string, Banda> bandasRegistradas)
         Console.WriteLine($"{enfeiteTitulo}\n {titulo}\n{enfeiteTitulo}\n");
     }
 
-    public static void VoltarMenu()
+    public Banda Banda { get; set; } = new("");
+    
+    public static void VoltarMenu(Dictionary<string, Banda> bandasRegistradas)
     {
         Console.WriteLine("\nDigite qualquer tecla para voltar ao menu");
-        Console.Clear();
         Console.ReadKey();
-        //ExibirOpcoesMenu();
+        MenuExibirOpcoes menuExibirOpcoes = new(bandasRegistradas);
+        menuExibirOpcoes.ExibirOpcoesMenu();
     }
 
     public bool ExisteBanda(Dictionary<string, Banda> bandasRegistradas, string nome)
@@ -31,13 +33,9 @@ internal class Menu(Dictionary<string, Banda> bandasRegistradas)
         }
     }
 
-    public Dictionary<string, Banda> BandasRegistradas { get; set; } = bandasRegistradas;
-    public Banda Banda { get; set; }
+    public static void MsgBandaInexistente(string nomeBanda) => Console.WriteLine($"A banda {nomeBanda} não está registrada\n");
 
-    public void MsgBandaInexistente(string nomeBanda)
-    {
-        Console.WriteLine($"A banda {nomeBanda} não está registrada\n");
-    }
+    public static void RegistroSucessoEsperar() => Thread.Sleep(1500);
 }
 
 

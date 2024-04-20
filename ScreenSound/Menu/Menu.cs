@@ -33,7 +33,9 @@ internal class Menu//(Dictionary<string, Banda> bandasRegistradas)
         }
     }
 
-    public static void MsgBandaInexistente(string nomeBanda) => Console.WriteLine($"A banda {nomeBanda} não está registrada\n");
+    public static void MsgBandaExistente(string nomeBanda) => Console.WriteLine($"\nA banda {nomeBanda} já está registrada\n");
+
+    public static void MsgBandaInexistente(string nomeBanda) => Console.WriteLine($"\nA banda {nomeBanda} não está registrada\n");
 
     public static void RegistroSucessoEsperar() => Thread.Sleep(1500);
 }

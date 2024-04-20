@@ -16,10 +16,8 @@ internal class MenuAvaliarBanda : Menu
             Console.Write($"\nDigite a nota da banda {nomeBanda}: ");
             Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!);
             Banda.AdicionarNota(nota);
-
+            RegistroSucessoEsperar();
             Console.WriteLine($"\nA nota foi adicionada para a banda {nomeBanda}\n");
-
-
         }
         else
         {

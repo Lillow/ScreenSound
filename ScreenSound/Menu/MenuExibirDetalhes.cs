@@ -4,7 +4,7 @@ namespace ScreenSound.Menu;
 
 internal class MenuExibirDetalhes : Menu
 {
-    public MenuExibirDetalhes(Dictionary<string, Banda> bandasRegistradas) //: base(bandasRegistradas)
+    public MenuExibirDetalhes(Dictionary<string, Banda> bandasRegistradas)
     {
         Console.Clear();
         Console.WriteLine($"Digite o nome da banda que quer ver a média: ");

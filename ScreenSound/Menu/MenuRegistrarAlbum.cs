@@ -7,7 +7,7 @@ internal class MenuRegistrarAlbum : Menu
 
 
 
-    public MenuRegistrarAlbum(Dictionary<string, Banda> bandasRegistradas) //: base(bandasRegistradas)
+    public MenuRegistrarAlbum(Dictionary<string, Banda> bandasRegistradas) 
     {
 
         Console.Clear();

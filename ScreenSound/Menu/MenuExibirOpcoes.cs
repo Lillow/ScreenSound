@@ -3,7 +3,7 @@ using ScreenSound.Outros;
 
 namespace ScreenSound.Menu;
 
-internal class MenuExibirOpcoes(Dictionary<string, Banda> bandasRegistradas) //: Menu(bandasRegistradas)
+internal class MenuExibirOpcoes(Dictionary<string, Banda> bandasRegistradas)
 {
     public void ExibirOpcoesMenu()
     {

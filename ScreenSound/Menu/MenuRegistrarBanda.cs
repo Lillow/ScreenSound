@@ -4,7 +4,7 @@ namespace ScreenSound.Menu;
 
 internal class MenuRegistrarBanda : Menu
 {
-    public MenuRegistrarBanda(Dictionary<string, Banda> bandasRegistradas) //: base(bandasRegistradas)
+    public MenuRegistrarBanda(Dictionary<string, Banda> bandasRegistradas) 
     {
         Console.Clear();
         ExibirTitulo("Registro de bandas");

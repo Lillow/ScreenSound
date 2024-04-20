@@ -2,7 +2,7 @@
 
 namespace ScreenSound.Menu;
 
-internal class Menu//(Dictionary<string, Banda> bandasRegistradas)
+internal class Menu
 {
     public static void ExibirTitulo(string titulo)
     {

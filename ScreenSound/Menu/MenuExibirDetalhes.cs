@@ -13,8 +13,8 @@ internal class MenuExibirDetalhes : Menu
 
         if (ExisteBanda(bandasRegistradas, nomeBanda))
         {
-
-            // EsperarLimpar(2000);
+            Banda banda = new(nomeBanda);
+            foreach (var album in banda.Albuns) { Console.WriteLine(album.Nome); }
 
             var total = Banda.Media;
 
@@ -22,7 +22,7 @@ internal class MenuExibirDetalhes : Menu
         }
         else
         {
-            Console.WriteLine($"A banda {nomeBanda} não está registrada\n");
+            MsgBandaInexistente(nomeBanda);
         }
 
         /***foreach (var valor in bandasRegistradas[nomeBanda])

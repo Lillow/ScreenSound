@@ -20,6 +20,21 @@ internal class Menu//(Dictionary<string, Banda> bandasRegistradas)
         menuExibirOpcoes.ExibirOpcoesMenu();
     }
 
+    public static bool ExisteAlbum(Banda banda, string nome)
+    {
+        var retorno = false;
+        foreach (var album in banda.Albuns)
+        {
+            if (album.Nome.Equals(nome) )
+            {
+                retorno = true;
+            }
+        }
+        return retorno;
+    }
+
+    public static void MsgAlbumExistente(string nomeAlbum) => Console.WriteLine($"\nO álbum {nomeAlbum} já existe\n");
+
     public bool ExisteBanda(Dictionary<string, Banda> bandasRegistradas, string nome)
     {
         if (bandasRegistradas.TryGetValue(nome, out Banda ? banda))

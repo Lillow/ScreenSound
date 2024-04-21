@@ -5,11 +5,10 @@ namespace ScreenSound.Menu;
 
 internal abstract class Menu
 {
-    public Banda? Banda { get; set; } 
-    public Banda? Album { get; set; } 
+    public Banda Banda { get; set; } = new("");
+    public Album Album { get; set; } = new("");
     public static string OpenAIkey { get; } = OpenAI.OpenAIkey();
-
-
+    public static string? Msg { get; set; }
     public virtual void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
         Console.Clear();
@@ -31,12 +30,20 @@ internal abstract class Menu
 
     public bool ExisteAlbum(Banda banda, string nomeAlbum)
     {
+        var msg = $"O álbum {nomeAlbum}";
+
         if (banda.Albuns.Any(album => album.Nome.Equals(nomeAlbum)))
         {
-            Album = new(nomeAlbum);
+            Album = Banda.Albuns.First(album => album.Nome.Equals(nomeAlbum));
+            Msg = $"{msg} já existe.";
             return true;
         }
-        else return false;
+        else
+        {
+            Album = new(nomeAlbum);
+            Msg = $"{msg} não foi encontrado.";
+            return false;
+        }
     }
     public bool ExisteBanda(Dictionary<string, Banda> bandasRegistradas, string nome)
     {
@@ -47,10 +54,6 @@ internal abstract class Menu
         }
         else return false;
     }
-
-    public static void MsgAlbumExistente(string nomeAlbum) => Console.WriteLine($"\nO álbum {nomeAlbum} já existe\n");
-    public static void MsgAlbumInexistente(string nomeAlbum) => Console.WriteLine($"\nO álbum {nomeAlbum} não foi encontrado\n");
-
 
     public static void MsgBandaExistente(string nomeBanda) => Console.WriteLine($"\nA banda {nomeBanda} já está registrada\n");
 

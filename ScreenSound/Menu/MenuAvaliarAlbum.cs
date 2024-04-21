@@ -9,26 +9,23 @@ internal class MenuAvaliarAlbum : Menu
     {
         base.Executar(bandasRegistradas);
         ExibirTitulo("Avaliar Álbum");
-        Console.WriteLine("\nDigite o nome da banda que deseja dar uma nota: ");
-        var nomeBanda = Console.ReadLine()!;
+        Console.Write("\nDigite o nome da banda que deseja dar uma nota: ");
 
-        if (ExisteBanda(bandasRegistradas, nomeBanda))
+        if (ExisteBanda(bandasRegistradas, Console.ReadLine()!))
         {
             
-            Console.WriteLine("\nDigite o nome do álbum que deseja dar uma nota: ");
-            var nomeAlbum = Console.ReadLine()!;
-            if (Banda.Albuns.Any(album => album.Nome.Equals(nomeAlbum)))
+            Console.Write("\nDigite o nome do álbum que deseja dar uma nota: ");
+            if (ExisteAlbum(Banda, Console.ReadLine()!))
             {
-                Album album = Banda.Albuns.First(album => album.Nome.Equals(nomeAlbum));
-                Console.Write($"\nDigite a nota do álbum {nomeAlbum}: ");
+                 Console.Write($"\nDigite a nota do álbum {Album.Nome}: ");
                 Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!);
-                album.AdicionarNota(nota);
+                Album.AdicionarNota(nota);
                 RegistroSucessoEsperar();
-                Console.WriteLine($"\nA nota {nota.Nota} foi adicionada para o álbum {album.Nome} da banda {nomeBanda}\n");
+                Console.WriteLine($"\nA nota {nota.Nota} foi adicionada para o álbum {Album.Nome} da banda {Banda.Nome}\n");
             }
             else
             {
-                MsgAlbumInexistente(nomeAlbum);
+                Console.WriteLine($"\n{Msg}");
             }
         }
     }

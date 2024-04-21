@@ -10,27 +10,25 @@ internal class MenuRegistrarAlbum : Menu
         base.Executar(bandasRegistradas);
         ExibirTitulo("Registro de álbuns");
         Console.Write("\nDigite a banda cujo álbum deseja registrar: ");
-        string nomeDaBanda = Console.ReadLine()!;
-
-        if (ExisteBanda(bandasRegistradas, nomeDaBanda))
+        
+        if (ExisteBanda(bandasRegistradas, Console.ReadLine()!))
         {
             Console.Write("\nAgora digite o título do álbum: ");
-            string tituloAlbum = Console.ReadLine()!;
-            if (!ExisteAlbum(Banda, tituloAlbum))
+            if (!ExisteAlbum(Banda, Console.ReadLine()!))
             {
-                bandasRegistradas[nomeDaBanda].AdicionarAlbum(new(tituloAlbum));
+                Banda.AdicionarAlbum(Album);
                 RegistroSucessoEsperar();
-                Console.WriteLine($"\nO álbum {tituloAlbum} de {nomeDaBanda} foi registrado com sucesso!");
+                Console.WriteLine($"\nO álbum {Album.Nome} de {Banda.Nome} foi registrado com sucesso!");
             }
             else
             {
-               MsgAlbumExistente(tituloAlbum); 
+               Console.WriteLine($"\n{Msg}"); 
             }
 
         }
         else
         {
-            Console.WriteLine($"\nA banda {nomeDaBanda} não foi encontrada!");
+            Console.WriteLine($"\n{Msg}");
             
         }
         

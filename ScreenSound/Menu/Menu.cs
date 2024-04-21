@@ -1,12 +1,12 @@
 ﻿using ScreenSound.Modelos;
+using ScreenSound.Outros;
 
 namespace ScreenSound.Menu;
 
 internal abstract class Menu
 {
     public Banda Banda { get; set; } = new("");
-
-    public const string OpenIaKey = "Key";
+    public static string OpenAIkey { get; } = OpenAI.OpenAIkey();
     public virtual void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
         Console.Clear();

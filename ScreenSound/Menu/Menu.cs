@@ -40,6 +40,8 @@ internal abstract class Menu
 
     public static void MsgAlbumExistente(string nomeAlbum) => Console.WriteLine($"\nO álbum {nomeAlbum} já existe\n");
 
+    public static void MsgAlbumInexistente(string nomeAlbum) => Console.WriteLine($"\nO álbum {nomeAlbum} não foi encontrado\n");
+
     public bool ExisteBanda(Dictionary<string, Banda> bandasRegistradas, string nome)
     {
         if (bandasRegistradas.TryGetValue(nome, out Banda ? banda))

@@ -16,6 +16,8 @@ internal class Banda(string nome) : IAvaliavel
         }
     }
 
+    public string? Resumo { get; set; }
+
     public void AdicionarAlbum(Album album) 
     { 
         Albuns.Add(album);

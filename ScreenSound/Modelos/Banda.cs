@@ -4,7 +4,7 @@ internal class Banda(string nome) : IAvaliavel
 {
     public readonly List<Album> Albuns = [];
     private readonly List<Avaliacao> notas = [];
-
+    public string Resumo { get; set; }
     public string Nome { get; } = nome;
     public float Media
     {
@@ -15,8 +15,6 @@ internal class Banda(string nome) : IAvaliavel
             return total;
         }
     }
-
-    public string? Resumo { get; set; }
 
     public void AdicionarAlbum(Album album) 
     { 

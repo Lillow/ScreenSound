@@ -4,7 +4,9 @@ namespace ScreenSound.Menu;
 
 internal abstract class Menu
 {
+    public Banda Banda { get; set; } = new("");
 
+    public const string OpenIaKey = "Key";
     public virtual void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
         Console.Clear();
@@ -14,8 +16,6 @@ internal abstract class Menu
         string enfeiteTitulo = string.Empty.PadRight(titulo.Length + 2, '*');
         Console.WriteLine($"{enfeiteTitulo}\n {titulo}\n{enfeiteTitulo}\n");
     }
-
-    public Banda Banda { get; set; } = new("");
     
     public static void VoltarMenu(Dictionary<string, Banda> bandasRegistradas)
     {

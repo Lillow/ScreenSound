@@ -5,12 +5,16 @@ namespace ScreenSound.Menu;
 
 internal abstract class Menu
 {
-    public Banda Banda { get; set; } = new("");
+    public Banda? Banda { get; set; } 
+    public Banda? Album { get; set; } 
     public static string OpenAIkey { get; } = OpenAI.OpenAIkey();
+
+
     public virtual void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
         Console.Clear();
     }
+    
     public static void ExibirTitulo(string titulo)
     {
         string enfeiteTitulo = string.Empty.PadRight(titulo.Length + 2, '*');
@@ -25,23 +29,15 @@ internal abstract class Menu
         menuExibirOpcoes.Executar(bandasRegistradas);
     }
 
-    public static bool ExisteAlbum(Banda banda, string nome)
+    public bool ExisteAlbum(Banda banda, string nomeAlbum)
     {
-        var retorno = false;
-        foreach (var album in banda.Albuns)
+        if (banda.Albuns.Any(album => album.Nome.Equals(nomeAlbum)))
         {
-            if (album.Nome.Equals(nome) )
-            {
-                retorno = true;
-            }
+            Album = new(nomeAlbum);
+            return true;
         }
-        return retorno;
+        else return false;
     }
-
-    public static void MsgAlbumExistente(string nomeAlbum) => Console.WriteLine($"\nO álbum {nomeAlbum} já existe\n");
-
-    public static void MsgAlbumInexistente(string nomeAlbum) => Console.WriteLine($"\nO álbum {nomeAlbum} não foi encontrado\n");
-
     public bool ExisteBanda(Dictionary<string, Banda> bandasRegistradas, string nome)
     {
         if (bandasRegistradas.TryGetValue(nome, out Banda ? banda))
@@ -49,11 +45,12 @@ internal abstract class Menu
             Banda = banda;
             return bandasRegistradas.ContainsKey(nome);
         }
-        else
-        {
-            return false;
-        }
+        else return false;
     }
+
+    public static void MsgAlbumExistente(string nomeAlbum) => Console.WriteLine($"\nO álbum {nomeAlbum} já existe\n");
+    public static void MsgAlbumInexistente(string nomeAlbum) => Console.WriteLine($"\nO álbum {nomeAlbum} não foi encontrado\n");
+
 
     public static void MsgBandaExistente(string nomeBanda) => Console.WriteLine($"\nA banda {nomeBanda} já está registrada\n");
 

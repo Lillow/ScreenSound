@@ -21,7 +21,7 @@ internal class MenuExibirDetalhes : Menu
 
             Console.WriteLine($"\nA média da banda {nomeBanda} é {Math.Round(total, 2)}\n");
 
-            //Banda.ExibirDiscografia();
+            Banda.ExibirDiscografia();
         }
         else
         {

@@ -2,7 +2,7 @@
 
 internal class Banda(string nome) : IAvaliavel
 {
-    private readonly List<Album> albuns = [];
+    public readonly List<Album> Albuns = [];
     private readonly List<Avaliacao> notas = [];
 
     public string Nome { get; } = nome;
@@ -15,11 +15,10 @@ internal class Banda(string nome) : IAvaliavel
             return total;
         }
     }
-    public List<Album> Albuns => albuns;
 
     public void AdicionarAlbum(Album album) 
     { 
-        albuns.Add(album);
+        Albuns.Add(album);
     }
 
     public void AdicionarNota(Avaliacao nota)
@@ -30,9 +29,9 @@ internal class Banda(string nome) : IAvaliavel
     public void ExibirDiscografia()
     {
         Console.WriteLine($"Discografia da banda {Nome}");
-        foreach (Album album in albuns)
+        foreach (Album album in Albuns)
         {
-            Console.WriteLine($"Álbum: {album.Nome} ({album.DuracaoTotal})");
+            Console.WriteLine($"Álbum: {album.Nome} ({album.DuracaoTotal}) - Média: {album.Media}");
         }
     }
 }

@@ -63,5 +63,3 @@ internal abstract class Menu
     }
     public static void RegistroSucessoEsperar() => Thread.Sleep(1500);
 }
-
-

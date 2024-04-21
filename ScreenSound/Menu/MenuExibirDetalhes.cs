@@ -9,19 +9,14 @@ internal class MenuExibirDetalhes : Menu
         base.Executar(bandasRegistradas);
         ExibirTitulo("Detalhes da Banda");
         Console.Write($"Digite o nome da banda: ");
-        var nomeBanda = Console.ReadLine()!;
 
-
-        if (ExisteBanda(bandasRegistradas, nomeBanda))
+        if (ExisteBanda(bandasRegistradas, Console.ReadLine()!))
         {
-            Banda banda = new(nomeBanda);
-            foreach (var album in banda.Albuns) { Console.WriteLine(album.Nome); }
-
             var total = Banda.Media;
 
             Console.WriteLine(Banda.Resumo);
 
-           Console.WriteLine($"\nA média da banda {nomeBanda} é {Math.Round(total, 2)}\n");
+            Console.WriteLine($"\nA média da banda {Banda.Nome} é {Math.Round(total, 2)}\n");
 
             Banda.ExibirDiscografia();
         }

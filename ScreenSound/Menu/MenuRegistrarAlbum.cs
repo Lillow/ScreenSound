@@ -31,11 +31,5 @@ internal class MenuRegistrarAlbum : Menu
             Console.WriteLine($"\n{Msg}");
             
         }
-        
-        /**
-         * ESPAÇO RESERVADO PARA COMPLETAR A FUNÇÃO
-         */
-        
-
     }
 }

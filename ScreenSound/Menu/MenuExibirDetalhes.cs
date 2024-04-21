@@ -27,7 +27,7 @@ internal class MenuExibirDetalhes : Menu
         }
         else
         {
-            MsgBandaInexistente(nomeBanda);
+            Console.WriteLine(Msg);
         }
 
         

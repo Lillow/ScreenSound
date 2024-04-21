@@ -10,29 +10,30 @@ internal class MenuRegistrarBanda : Menu
         base.Executar(bandasRegistradas);
         ExibirTitulo("Registro de bandas");
         Console.Write("Digite o nome da banda que deseja registrar: ");
-        Banda banda = new(Console.ReadLine()!);
 
-        if (!ExisteBanda(bandasRegistradas, banda.Nome))
+        if (!ExisteBanda(bandasRegistradas, Console.ReadLine()!))
         {
-            bandasRegistradas.Add(banda.Nome, banda);
+            bandasRegistradas.Add(Banda.Nome, Banda);
+
             try
             {
                 var cliente = new OpenAIAPI(OpenAIkey);
                 var chat = cliente.Chat.CreateConversation();
-                chat.AppendSystemMessage($"Resuma a banda {banda.Nome} em um parágrafo.");
+                chat.AppendSystemMessage($"Resuma a banda {Banda.Nome} em um parágrafo.");
                 string resposta = chat.GetResponseFromChatbotAsync().GetAwaiter().GetResult();
-                banda.Resumo = resposta;
+                Banda.Resumo = resposta;
             }
             catch (Exception)
             {
-                Console.WriteLine($"\nNão foi possível criar um resumo da banda {banda.Nome}");
+                Console.WriteLine($"\nNão foi possível criar um resumo da banda {Banda.Nome}");
             }
-           RegistroSucessoEsperar();
-            Console.WriteLine($"\nA banda {banda.Nome} foi registrada com sucesso!\n");
+
+            RegistroSucessoEsperar();
+            Console.WriteLine($"\nA banda {Banda.Nome} foi registrada com sucesso!\n");
         }
         else
         {
-            MsgBandaExistente(banda.Nome);
+            Console.WriteLine($"\n{Msg}");
         }
     }
 }

@@ -8,20 +8,19 @@ internal class MenuAvaliarBanda : Menu
     {
         base.Executar(bandasRegistradas);
         ExibirTitulo("Avaliar Banda");
-        Console.WriteLine("\nDigite o nome da banda que deseja dar uma nota: ");
-        var nomeBanda = Console.ReadLine()!;
+        Console.Write("\nDigite o nome da banda que deseja dar uma nota: ");
 
-        if (ExisteBanda(bandasRegistradas, nomeBanda))
+        if (ExisteBanda(bandasRegistradas, Console.ReadLine()!))
         {
-            Console.Write($"\nDigite a nota da banda {nomeBanda}: ");
+            Console.Write($"\nDigite a nota da banda {Banda.Nome}: ");
             Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!);
             Banda.AdicionarNota(nota);
             RegistroSucessoEsperar();
-            Console.WriteLine($"\nA nota foi adicionada para a banda {nomeBanda}\n");
+            Console.WriteLine($"\nA nota foi adicionada para a banda {Banda.Nome}\n");
         }
         else
         {
-            Console.WriteLine($"\nBanda {nomeBanda} não encontrada\n");
+            Console.WriteLine($"\n{Msg}");
         }
     }
 }

@@ -45,20 +45,22 @@ internal abstract class Menu
             return false;
         }
     }
-    public bool ExisteBanda(Dictionary<string, Banda> bandasRegistradas, string nome)
+    public bool ExisteBanda(Dictionary<string, Banda> bandasRegistradas, string nomeBanda)
     {
-        if (bandasRegistradas.TryGetValue(nome, out Banda ? banda))
+        var msg = $"A banda {nomeBanda}";
+        if (bandasRegistradas.TryGetValue(nomeBanda, out Banda? banda))
         {
             Banda = banda;
-            return bandasRegistradas.ContainsKey(nome);
+            Msg = $"{msg} já foi registrada.";
+            return bandasRegistradas.ContainsKey(nomeBanda);
         }
-        else return false;
+        else 
+        {
+            Banda = new(nomeBanda);
+            Msg = $"{msg} não foi encontrada.";
+            return false;
+        }
     }
-
-    public static void MsgBandaExistente(string nomeBanda) => Console.WriteLine($"\nA banda {nomeBanda} já está registrada\n");
-
-    public static void MsgBandaInexistente(string nomeBanda) => Console.WriteLine($"\nA banda {nomeBanda} não está registrada\n");
-
     public static void RegistroSucessoEsperar() => Thread.Sleep(1500);
 }
 

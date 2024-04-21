@@ -7,7 +7,8 @@ internal class MenuExibirDetalhes : Menu
     public override void Executar(Dictionary<string, Banda> bandasRegistradas)
     {
         base.Executar(bandasRegistradas);
-        Console.WriteLine($"Digite o nome da banda que quer ver a média: ");
+        ExibirTitulo("Detalhes da Banda");
+        Console.Write($"Digite o nome da banda: ");
         var nomeBanda = Console.ReadLine()!;
 
 
@@ -18,18 +19,12 @@ internal class MenuExibirDetalhes : Menu
 
             var total = Banda.Media;
 
-            Console.WriteLine($"A média da banda {nomeBanda} é {Math.Round(total, 2)}\n");
+            Console.WriteLine($"\nA média da banda {nomeBanda} é {Math.Round(total, 2)}\n");
         }
         else
         {
             MsgBandaInexistente(nomeBanda);
         }
-
-        /***foreach (var valor in bandasRegistradas[nomeBanda])
-        {
-            count ++;
-            total += valor;
-        }***/
 
     }
 }

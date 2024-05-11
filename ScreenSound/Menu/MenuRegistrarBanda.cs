@@ -29,22 +29,5 @@ internal class MenuRegistrarBanda : Menu
         }
     }
 
-    private async void GeraResumoBanda(string apiKey, Banda banda)
-    {
-        try
-        {
-            var model = new GenerativeModel(apiKey);
-
-            var resposta = await model.GenerateContentAsync($"Resuma a banda {banda.Nome} em um parágrafo.");
-
-            banda.Resumo = resposta + "\n\n";
-        }
-        catch (Exception)
-        {
-            Console.WriteLine($"\nNão foi possível criar um resumo da banda {Banda.Nome}");
-        }
-
-    }
-
 }
 

@@ -1,6 +1,5 @@
-using GenerativeAI.Models;
 using ScreenSound.Modelos;
-using ScreenSound.Outros;
+
 
 namespace ScreenSound.Menu;
 internal class MenuRegistrarBanda : Menu
@@ -16,9 +15,7 @@ internal class MenuRegistrarBanda : Menu
         {
             bandasRegistradas.Add(Banda.Nome, Banda);
 
-            var apiKey = ApiKey.Key;
-
-            GeraResumoBanda(apiKey, Banda);
+            GeraResumoBanda(Banda);
 
             RegistroSucessoEsperar();
             Console.WriteLine($"\nA banda {Banda.Nome} foi registrada com sucesso!\n");

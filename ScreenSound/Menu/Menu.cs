@@ -1,5 +1,6 @@
 ﻿using GenerativeAI.Models;
 using ScreenSound.Modelos;
+using ScreenSound.Outros;
 
 namespace ScreenSound.Menu;
 
@@ -62,15 +63,17 @@ internal abstract class Menu
         }
     }
     protected void RegistroSucessoEsperar() => Thread.Sleep(1500);
-    protected async void GeraResumoBanda(string apiKey, Banda banda)
+    protected async void GeraResumoBanda(Banda banda)
     {
         try
         {
+            var apiKey = ApiKey.Key;
+
             var model = new GenerativeModel(apiKey);
 
             var resposta = await model.GenerateContentAsync($"Resuma a banda {banda.Nome} em um parágrafo.");
 
-            banda.Resumo = resposta + "\n\n";
+            banda.Resumo = "\n" + resposta + "\n";
         }
         catch (Exception)
         {

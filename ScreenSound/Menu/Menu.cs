@@ -1,5 +1,4 @@
 ﻿using ScreenSound.Modelos;
-using ScreenSound.Outros;
 
 namespace ScreenSound.Menu;
 
@@ -7,7 +6,7 @@ internal abstract class Menu
 {
     public Banda Banda { get; set; } = new("");
     public Album Album { get; set; } = new("");
-    public static string OpenAIkey { get; } = OpenAI.OpenAIkey();
+    public static string OpenAIkey { get; } = "";
     public static string? Msg { get; set; }
     public virtual void Executar(Dictionary<string, Banda> bandasRegistradas)
     {

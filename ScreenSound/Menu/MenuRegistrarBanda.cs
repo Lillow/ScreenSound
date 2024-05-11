@@ -1,5 +1,6 @@
-using OpenAI_API;
+using GenerativeAI.Models;
 using ScreenSound.Modelos;
+using ScreenSound.Outros;
 
 namespace ScreenSound.Menu;
 internal class MenuRegistrarBanda : Menu
@@ -15,18 +16,9 @@ internal class MenuRegistrarBanda : Menu
         {
             bandasRegistradas.Add(Banda.Nome, Banda);
 
-            try
-            {
-                var cliente = new OpenAIAPI(OpenAIkey);
-                var chat = cliente.Chat.CreateConversation();
-                chat.AppendSystemMessage($"Resuma a banda {Banda.Nome} em um parágrafo.");
-                string resposta = chat.GetResponseFromChatbotAsync().GetAwaiter().GetResult();
-                Banda.Resumo = resposta;
-            }
-            catch (Exception)
-            {
-                Console.WriteLine($"\nNão foi possível criar um resumo da banda {Banda.Nome}");
-            }
+            var apiKey = ApiKey.Key;
+
+            GeraResumoBanda(apiKey, Banda);
 
             RegistroSucessoEsperar();
             Console.WriteLine($"\nA banda {Banda.Nome} foi registrada com sucesso!\n");
@@ -36,4 +28,23 @@ internal class MenuRegistrarBanda : Menu
             Console.WriteLine($"\n{Msg}");
         }
     }
+
+    private async void GeraResumoBanda(string apiKey, Banda banda)
+    {
+        try
+        {
+            var model = new GenerativeModel(apiKey);
+
+            var resposta = await model.GenerateContentAsync($"Resuma a banda {banda.Nome} em um parágrafo.");
+
+            banda.Resumo = resposta + "\n\n";
+        }
+        catch (Exception)
+        {
+            Console.WriteLine($"\nNão foi possível criar um resumo da banda {Banda.Nome}");
+        }
+
+    }
+
 }
+

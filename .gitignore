@@ -362,8 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-#Classe que armazena keys OpenAI
-OpenAI.cs
-
-#Arquivo OpenAI key.txt
-ScreenSound/Outros/OpenAI key.txt
+#Classe com a chave da API
+ScreenSound/Outros/ApiKey.cs
